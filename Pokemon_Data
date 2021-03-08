@@ -1,0 +1,57 @@
+import pandas as pd
+
+pokedex = pd.read_csv('datasets_121_280_Pokemon.csv')
+#print(pokedex)
+#print(pokedex.iloc[0])
+print()
+print('next')
+print()
+
+#to get a column
+#print(pokedex.iloc[:,0])
+#print(pokedex.Name)
+
+#for i in range(0, 5):
+    #print(pokedex.iloc[i])
+
+sort = pokedex.loc[:, ['Name', 'Type 1', 'Attack', 'Defense', 'Legendary']]
+#print(sort)
+
+poke=pokedex.Name == 'Bulbasaur'
+#print(poke)
+
+legend = pokedex.Legendary == True
+#print(legend)
+
+search_legendary = pokedex.loc[pokedex.Legendary == True]
+#print(search_legendary)
+
+search_kyogre = pokedex.loc[pokedex.Name == 'Kyogre']
+#print(search_kyogre)
+
+search_gengar = pokedex.loc[(pokedex.Legendary == False) & (pokedex.Name == 'Gengar')]
+#print(search_gengar)
+
+dscrb = pokedex.Name.describe()
+#print(dscrb)
+
+speed_mean = pokedex.Speed.mean()
+#print(speed_mean)
+
+unique_gen = pokedex.Generation.unique()
+#print(unique_gen)
+
+num_gen = pokedex.Generation.value_counts()
+#print(num_gen)
+
+attack_max = pokedex.groupby('Attack').Attack.count()
+#print(attack_max)
+
+try_attack = pokedex.groupby('Name').Attack.max()
+#print(try_attack)
+
+type_attack_stats = pokedex.groupby(['Type 1']).Attack.agg([min, max])
+#print(type_attack_stats)
+
+type_defense_stats = pokedex.groupby(['Type 1']).Defense.agg([min,max])
+#print(type_defense_stats)
