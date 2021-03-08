@@ -1,0 +1,33 @@
+import pandas as pd
+
+fruits = pd.DataFrame([[30, 21, 15, 6]], columns=['Apples', 'Oranges', 'Rambutans', 'Mangoes'])
+planets = pd.DataFrame([[1, 2, 3, 4, 5, 6, 7, 8]], columns=['Mercury','Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'])
+rent= pd.DataFrame([[1700,2000, 2100, 3000]], columns= ['The Bronx', 'Queens', 'Brooklyn', 'Manhattan'])
+print(fruits)
+print()
+print(planets)
+print()
+print(rent)
+print()
+#dataframe with index
+population= pd.DataFrame([[2000, 3150, 4000],[3000,3500,4200]], columns=['Bangladesh','Pakistan','Sri Lanka'],
+                         index=['Year (2000)', 'Year (2010)'])
+print(population)
+print()
+
+#series
+quantities = ['4 cups', '1 cup', '2 large', '1 can']
+items = ['Flour', 'Milk', 'Eggs', 'Spam']
+recipe = pd.Series(quantities, index=items, name='Dinner')
+print(recipe)
+print()
+
+number_of_pieces= ['4', '5', '1', '3', '2']
+pieces = ['Bolts', 'Resistors', 'Arduino Board', 'Circuit wires', 'Transistors']
+robot = pd.Series(number_of_pieces, index=pieces, name='Robot')
+print(robot)
+print()
+
+#reading in a csv file
+pokedex = pd.read_csv('datasets_121_280_Pokemon.csv')
+print(pokedex)
